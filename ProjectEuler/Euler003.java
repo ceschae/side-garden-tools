@@ -1,3 +1,13 @@
+/**
+ * Project Euler: Problem 2
+ * 'Largest Prime Factor'
+ * Finds the largest prime factor of TARGET.
+ *
+ * @author  Caitlin Schaefer
+ * @version 4.0
+ * @since   16-June-2015
+ */
+
 import java.util.*;
 
 public class Euler003 {
@@ -7,6 +17,13 @@ public class Euler003 {
       version4();
    }
    
+   /**
+    * Attempt 4 (best solution). This solution is actually mathematically
+    * efficient. Reduces TARGET by increasing prime factors, narrows down to
+    * one largest prime (either a factor already found, or n if greater than
+    * sqrt(n), since only one prime factor can exist above sqrt(n). Prints
+    * result to console. 
+    */
    public static void version4() {
       int lastFactor = 1;
       long n = TARGET;
@@ -35,8 +52,12 @@ public class Euler003 {
       }
    }
    
+   /** 
+    * Attempt 3. Different formatting of version1, except counts up from 2
+    * rather than down from TARGET / 2. Prints all prime factors of TARGET
+    * to console. 
+    */
    public static void version3() {
-      Set<Long> primes = new HashSet<Long>();
       for (long i = 2; i < TARGET / 2; i++) {
          if (TARGET % i == 0) {
             long other = TARGET / i;
@@ -48,15 +69,11 @@ public class Euler003 {
       }
    }
    
-   private static boolean multiplePrimes(long i, Set<Long> primes) {
-      for (Long l : primes) {
-         if (i % l == 0) {
-            return true;
-         }
-      }
-      return false;
-   }
-      
+   /**
+    * Second attempt. Tried to make a linked list of all numbers to consider,
+    * by eliminating numbers from list as we go, however, ran into memory
+    * overflow errors. Failed attempt.
+    */    
    public static void version2() {
       NumNode front = null;
       for (long i = TARGET / 2; i >= 2; i--) {
@@ -83,6 +100,13 @@ public class Euler003 {
       }
    }
    
+   /**
+    * First attempt. Brute force searches down from TARGET / 2 (since 2 is
+    * smallest potential prime factor, largest potential prime factor
+    * (aside from TARGET) will be TARGET / 2) until it finds the first
+    * prime factor (which will be largest by virtue of searching top-to-
+    * bottom), prints result to console. 
+    */
    public static void version1() {
       long i = TARGET / 2;
       while (true) {
@@ -94,6 +118,12 @@ public class Euler003 {
       }
    }
    
+   /**
+    * Determines if the passed long n is prime or not.
+    *
+    * @param n the long do determine if prime or not
+    * @return boolean True if n is prime, false otherwise
+    */
    private static boolean isPrime(long n) {
       int i = 2;
       for (; i < n; i++) {
@@ -101,7 +131,6 @@ public class Euler003 {
             return false;
          }
       }
-      System.out.println(i);
       return true;
    }
 }
