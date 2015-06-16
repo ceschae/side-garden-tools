@@ -4,7 +4,35 @@ public class Euler003 {
    public static final long TARGET = 600851475143L;
 
    public static void main(String[] args) {
-      version3();
+      version4();
+   }
+   
+   public static void version4() {
+      int lastFactor = 1;
+      long n = TARGET;
+      if (n % 2 == 0) {
+         lastFactor = 2;
+         while (n % 2 == 0) {
+            n /= 2;
+         }
+      } 
+      int factor = 3;
+      int maxFactor = (int) Math.sqrt(n);
+      while (n > 1 && factor <= maxFactor) {
+         if (n % factor == 0) {
+            lastFactor = factor;
+            while (n % factor == 0) {
+               n /= factor;
+            }
+            maxFactor = (int) Math.sqrt(n);
+         }
+         factor = factor + 2;
+      }
+      if (n == 1) {
+         System.out.println(lastFactor);
+      } else {
+         System.out.println(n);
+      }
    }
    
    public static void version3() {
