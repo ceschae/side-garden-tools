@@ -16,9 +16,6 @@ public class Euler003 {
                System.out.println(other);
                break;
             }
-         }
-         if (i % 1000000 == 0) {
-            System.out.println("not yet, at " + i);
          }  
       }
    }
