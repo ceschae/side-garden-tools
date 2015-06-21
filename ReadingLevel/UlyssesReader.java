@@ -9,9 +9,10 @@
 
 public class UlyssesReader {
 	public static final int TARGET_DIFFICULTY = 20;
+	public static final String FILE = "Ulysses.txt";
 	
 	public static void main(String[] args) {
-		Scanner document = new Scanner(new File("Ulysses.txt"));
+		Scanner document = new Scanner(new File(FILE));
 		Map<String, Integer> wordCount = new HashMap<String, Integer>();
 		int totalWordCount = 0;
 		while (document.hasNext()) {
