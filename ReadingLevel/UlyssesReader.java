@@ -1,6 +1,6 @@
 /** 
- * Reads in James Joyce's Ulysses, gauges reading level to be 'highest' of
- * ReadingLevel scale. 
+ * Reads in any text file FILE, gauges reading level to be TARGET_DIFFICULTY of
+ * ReadingLevel scale (0 - 20). 
  *
  * @author Caitlin Schaefer
  * @version 1.0
